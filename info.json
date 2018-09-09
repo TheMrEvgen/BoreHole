@@ -1,0 +1,11 @@
+{
+  "name": "BoreHole",
+  "version": "1.0.0",
+  "factorio_version": "0.16",
+  "title": "BoreHole",
+  "author": "MrEvgen",
+  "contact": "",
+  "homepage": "",
+  "dependencies": ["base >= 0.16.0"],
+  "description": "Water extraction from the ground."
+}
