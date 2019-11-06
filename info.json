@@ -4,8 +4,8 @@
   "factorio_version": "0.16",
   "title": "BoreHole",
   "author": "MrEvgen",
-  "contact": "ferrari.ferrari.1997@mail.ru",
-  "homepage": "https://github.com/TheMrEvgen/BoreHole",
+  "contact": "",
+  "homepage": "",
   "dependencies": ["base >= 0.16.0"],
-  "description": "Water extraction from the ground."
+  "description": "Mod adds 2 borehole, one operating on solid fuel, and the other consumes electricity to operate."
 }
