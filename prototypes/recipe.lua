@@ -3,7 +3,7 @@ data:extend(
 	{
 		type = "recipe",
 		name = "borehole",
-		enabled = "true",
+		enabled = true,
 		ingredients = 
 		{
 		  {"pipe",5},
@@ -17,7 +17,7 @@ data:extend(
 	{
 		type = "recipe",
 		name = "borehole-energy",
-		enabled = "true",
+		enabled = false,
 		ingredients = 
 		{
 		  {"pipe",10},
@@ -37,4 +37,5 @@ data:extend(
 		ingredients = {},
 		results = {{type = "fluid", name = "water", amount=75}}
 	}
-})
+}
+)

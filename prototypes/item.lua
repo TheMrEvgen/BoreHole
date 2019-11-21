@@ -1,4 +1,5 @@
-data:extend({
+data:extend(
+{
  {
     type = "item",
     name = "borehole",
@@ -19,4 +20,5 @@ data:extend({
     place_result = "borehole-energy",
     stack_size = 10,
   }
-})
+}
+)
