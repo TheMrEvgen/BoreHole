@@ -141,5 +141,4 @@ data:extend(
       apparent_volume = 1.5
     }
   }
-}
-)
+})
