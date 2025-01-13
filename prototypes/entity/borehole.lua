@@ -21,17 +21,15 @@ data:extend(
     energy_source =
     {
       type = "burner",
-      fuel_category = "chemical",
+      fuel_categories = {"chemical"},
       effectivity = 1,
       fuel_inventory_size = 1,
-      emissions = 0.1 / 10,
-      smoke =
+      burnt_inventory_size = 1,
+      light_flicker =
       {
-        {
-          name = "smoke",
-          deviation = {0.1, 0.1},
-          frequency = 3
-        }
+        color = {0,0,0},
+        minimum_intensity = 0.7,
+        maximum_intensity = 0.95
       }
     },
     fluid_boxes =
@@ -40,111 +38,143 @@ data:extend(
         production_type = "output",
         pipe_covers = pipecoverspictures(),
         base_level = 1,
-        pipe_connections =
+		volume = 1000,
+		pipe_connections =
 		{
 			{
-			positions = { {1, -2}, {2, -1}, {-1, 2}, {-2, 1} }
+				direction = defines.direction.north,
+				positions = {{1, -1}, {1, -1}, {-1, 1}, {-1, 1}},
+				flow_direction = "output"
 			}
 		}
 	  }
     },
-    animation =
+	graphics_set =
     {
-      north =
+      underwater_layer_offset = 30,
+      base_render_layer = "ground-patch",
+      animation =
       {
-        priority = "high",
-        width = 131,
-        height = 137,
-        shift = util.by_pixel(-2.5, -4.5),
-		line_length = 8,
-		frame_count = 40,
-		animation_speed = 0.5,
-        filename = "__BoreHole__/graphics/north.png"
-      },
-	  {
-        priority = "high",
-        filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
-        animation_speed = 0.5,
-        draw_as_shadow = true,
-        line_length = 8,
-        width = 155,
-        height = 41,
-        frame_count = 40,
-        shift = util.by_pixel(17.5, 14.5),
-      },
-      east =
-      {
-        priority = "high",
-        width = 131,
-        height = 137,
-        shift = util.by_pixel(-2.5, -4.5),
-		line_length = 8,
-		frame_count = 40,
-		animation_speed = 0.5,
-        filename = "__BoreHole__/graphics/east.png"
-      },
-	  {
-        priority = "high",
-        filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
-        animation_speed = 0.5,
-        draw_as_shadow = true,
-        line_length = 8,
-        width = 155,
-        height = 41,
-        frame_count = 40,
-        shift = util.by_pixel(17.5, 14.5),
-      },
-      south =
-      {
-        priority = "high",
-        width = 131,
-        height = 137,
-        shift = util.by_pixel(-2.5, -4.5),
-		line_length = 8,
-		frame_count = 40,
-		animation_speed = 0.5,
-        filename = "__BoreHole__/graphics/south.png"
-      },
-	  {
-        priority = "high",
-        filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
-        animation_speed = 0.5,
-        draw_as_shadow = true,
-        line_length = 8,
-        width = 155,
-        height = 41,
-        frame_count = 40,
-        shift = util.by_pixel(17.5, 14.5),
-      },
-      west =
-      {
-        priority = "high",
-        width = 131,
-        height = 137,
-        shift = util.by_pixel(-2.5, -4.5),
-		line_length = 8,
-		frame_count = 40,
-		animation_speed = 0.5,
-        filename = "__BoreHole__/graphics/west.png"
-      },
-	  {
-        priority = "high",
-        filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
-        animation_speed = 0.5,
-        draw_as_shadow = true,
-        line_length = 8,
-        width = 155,
-        height = 41,
-        frame_count = 40,
-        shift = util.by_pixel(17.5, 14.5),
-      }
-    },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+        north =
+        {
+          layers =
+          {
+            {
+				priority = "high",
+				width = 131,
+				height = 137,
+				shift = util.by_pixel(-2.5, -4.5),
+				line_length = 8,
+				frame_count = 40,
+				animation_speed = 0.5,
+				filename = "__BoreHole__/graphics/north.png"
+			},
+			{
+				priority = "high",
+				filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+				animation_speed = 0.5,
+				draw_as_shadow = true,
+				line_length = 8,
+				width = 309,
+				height = 82,
+				frame_count = 40,
+				scale = 0.5,
+				shift = util.by_pixel(17.75, 14.5)
+            }
+          }
+        },
+        east =
+        {
+          layers =
+          {
+            {
+				priority = "high",
+				width = 131,
+				height = 137,
+				shift = util.by_pixel(-2.5, -4.5),
+				line_length = 8,
+				frame_count = 40,
+				animation_speed = 0.5,
+				filename = "__BoreHole__/graphics/east.png"
+			},
+			{
+				priority = "high",
+				filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+				animation_speed = 0.5,
+				draw_as_shadow = true,
+				line_length = 8,
+				width = 309,
+				height = 82,
+				frame_count = 40,
+				scale = 0.5,
+				shift = util.by_pixel(17.75, 14.5)
+            }
+          }
+        },
+        south =
+        {
+          layers =
+		  {
+			{
+				priority = "high",
+				width = 131,
+				height = 137,
+				shift = util.by_pixel(-2.5, -4.5),
+				line_length = 8,
+				frame_count = 40,
+				animation_speed = 0.5,
+				filename = "__BoreHole__/graphics/south.png"
+			},
+			{
+				priority = "high",
+				filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+				animation_speed = 0.5,
+				draw_as_shadow = true,
+				line_length = 8,
+				width = 309,
+				height = 82,
+				frame_count = 40,
+				scale = 0.5,
+				shift = util.by_pixel(17.75, 14.5)
+            }
+          }
+        },
+        west =
+        {
+          layers =
+          {
+            {
+				priority = "high",
+				width = 131,
+				height = 137,
+				shift = util.by_pixel(-2.5, -4.5),
+				line_length = 8,
+				frame_count = 40,
+				animation_speed = 0.5,
+				filename = "__BoreHole__/graphics/west.png"
+			},
+			{
+				priority = "high",
+				filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+				animation_speed = 0.5,
+				draw_as_shadow = true,
+				line_length = 8,
+				width = 309,
+				height = 82,
+				frame_count = 40,
+				scale = 0.5,
+				shift = util.by_pixel(17.75, 14.5)
+            }
+          }
+        }
+	  }
+	},
     working_sound =
     {
-      sound = { filename = "__base__/sound/pumpjack.ogg" },
-      apparent_volume = 1.5
+      sound = { filename = "__base__/sound/pumpjack.ogg", volume = 1.5 },
+      audible_distance_modifier = 0.5,
+      fade_in_ticks = 4,
+      fade_out_ticks = 20
     }
   }
-}
-)
+})

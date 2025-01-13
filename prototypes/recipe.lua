@@ -3,16 +3,16 @@ data:extend(
 	{
 		type = "recipe",
 		name = "borehole",
-		enabled = true,
+		enabled = false,
 		ingredients = 
 		{
-		  {"pipe",5},
-		  {"burner-mining-drill",1},
-		  {"iron-gear-wheel",5},
-		  {"copper-plate",10}
+			{type = "item", name = "pipe", amount = 10},
+			{type = "item", name = "burner-mining-drill", amount = 1},
+			{type = "item", name = "iron-gear-wheel", amount = 5},
+			{type = "item", name = "copper-plate", amount = 10}
 		},
-		energy_required = 5,
-		result = "borehole"
+		--energy_required = 5,
+		results = {{type="item", name="borehole", amount=1}}
 	},
 	{
 		type = "recipe",
@@ -20,13 +20,13 @@ data:extend(
 		enabled = false,
 		ingredients = 
 		{
-		  {"pipe",10},
-		  {"electric-mining-drill",1},
-		  {"iron-gear-wheel",5},
-		  {"steel-plate",5}
+			{type = "item", name = "pipe", amount = 10},
+			{type = "item", name = "electric-mining-drill", amount = 1},
+			{type = "item", name = "iron-gear-wheel", amount = 5},
+			{type = "item", name = "steel-plate", amount = 10}
 		},
-		energy_required = 5,
-		result = "borehole-energy"
+		--energy_required = 5,
+		results = {{type="item", name="borehole-energy", amount=1}}
 	},
 	{
 		type = "recipe",
